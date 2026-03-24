@@ -34,6 +34,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -60,6 +61,47 @@ body {
 
 .nav-links a:hover {
     color: #4CAF50;
+}
+
+/* 菜单按钮 */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        display: none;
+        z-index: 1000;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
 }
 
 /* 英雄区域 */
@@ -346,10 +388,64 @@ body {
     .skills-text {
         margin-right: 0;
         margin-bottom: 2rem;
+        min-width: 100%;
     }
     
-    .skills-text {
-        min-width: 100%;
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+    }
+}
+
+/* 针对手机端的额外优化 */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .about h2,
+    .skills h2,
+    .projects h2,
+    .contact h2 {
+        font-size: 2rem;
+    }
+    
+    .about-text p,
+    .skills-text p {
+        font-size: 1rem;
+    }
+    
+    .project-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .project-card p {
+        font-size: 0.9rem;
+    }
+    
+    .footer p {
+        font-size: 0.9rem;
+    }
+    
+    .social-links a {
+        font-size: 1.2rem;
     }
 }
 
