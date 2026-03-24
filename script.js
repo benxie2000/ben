@@ -78,7 +78,7 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // 观察需要动画的元素
-const animatedElements = document.querySelectorAll('.about, .projects, .contact');
+const animatedElements = document.querySelectorAll('.about, .skills, .projects, .contact');
 animatedElements.forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(20px)';
@@ -86,51 +86,12 @@ animatedElements.forEach(element => {
     observer.observe(element);
 });
 
-// 移动端菜单
+// 添加菜单按钮点击事件
 const menuToggle = document.createElement('button');
 menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
 menuToggle.className = 'menu-toggle';
-menuToggle.style.cssText = `
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-`;
 
 const navbar = document.querySelector('.navbar .container');
 navbar.appendChild(menuToggle);
 
 menuToggle.addEventListener('click', toggleNav);
-
-// 响应式菜单样式
-const style = document.createElement('style');
-style.textContent = `
-    @media (max-width: 768px) {
-        .menu-toggle {
-            display: block;
-        }
-        
-        .nav-links {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem 0;
-            display: none;
-        }
-        
-        .nav-links.active {
-            display: flex;
-        }
-        
-        .nav-links li {
-            margin: 0.5rem 0;
-        }
-    }
-`;
-document.head.appendChild(style);
